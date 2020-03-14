@@ -19,7 +19,8 @@ import java.util.List;
 public class PersonController {
     @Autowired
     private PersonDao personDao;
-
+    
+    //添加方法
     @PostMapping("/")
     public String add(@RequestBody Person person){
         personDao.save(person);
