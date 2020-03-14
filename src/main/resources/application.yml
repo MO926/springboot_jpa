@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/jpa001?serverTimezone=UTC
+    #自定义了数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    #druid自定义参数
+    #Spring Boot 默认是不注入这些属性值的，需要自己绑定
+    #druid 数据源专有配置
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+  jpa:
+    #打印jpa运行的sql语句，生产环境关闭，节约资源
+    show-sql: true
+    hibernate:
+      ddl-auto: update
